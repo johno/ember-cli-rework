@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-rework",
   "description": "Use Rework CSS in your Ember app",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "directories": {
     "doc": "doc",
     "test": "tests"

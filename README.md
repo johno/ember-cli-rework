@@ -1,6 +1,6 @@
 # Ember CLI Rework
 
-Use [Rework CSS](https://github.com/reworkcss/) in your Ember app.
+Use [Rework CSS](https://github.com/reworkcss/) preprocessing in your Ember app.
 
 Note: This currently does not support the rework-npm plugin (I'm working on it).
 
@@ -14,7 +14,7 @@ npm i --save-dev ember-cli-rework
 
 This addon will, by default, look for `app/styles/app.css` and compile it
 into `dist/assets/your-app-name.css`. However, you will have tell the addon
-which plugins to use.
+which Rework plugins to use in your `Brocfile.js`:
 
 ```javascript
 var vars = require('rework-vars');
