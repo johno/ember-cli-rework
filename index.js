@@ -11,9 +11,10 @@ module.exports = {
   },
 
   postprocessTree: function(type, tree) {
-    if (type === 'all' || type === 'styles') {
+    var plugins = this.plugins;
+    if (plugins && (type === 'all' || type === 'styles')) {
       tree = rework(tree, { use:function(css) {
-        this.plugins.forEach(function(plugin) {
+        plugins.forEach(function(plugin) {
           css.use(plugin);
         });
       }});

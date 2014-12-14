@@ -1,8 +1,12 @@
 /* global require, module */
 
 var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
+var reworkVars = require('rework-vars');
+var reworkNPM = require('rework-npm');
 
-var app = new EmberAddon();
+var app = new EmberAddon({
+  reworkPlugins: [reworkNPM(), reworkVars()]
+});
 
 // Use `app.import` to add additional libraries to the generated
 // output files.

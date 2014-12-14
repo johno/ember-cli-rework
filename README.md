@@ -4,6 +4,8 @@ _Currently under development._
 
 Use [Rework CSS](https://github.com/reworkcss/) in your Ember app.
 
+Note: This currently does not support the rework-npm plugin (I'm working on it).
+
 ## Installation
 
 ```
