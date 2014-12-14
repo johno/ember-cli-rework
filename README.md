@@ -1,4 +1,6 @@
-# Ember Rework
+# Ember CLI Rework
+
+_Currently under development._
 
 Use rework CSS with your Ember app.
 
@@ -15,40 +17,37 @@ into `dist/assets/your-app-name.css`. However, you will have tell the addon
 which plugins to use.
 
 ```javascript
+var vars = require('rework-vars');
+var customMedia = require('custom-media');
+
 var app = EmberApp({
-  reworkOptions: {
-    basePlugins: {
-      reworkNPM: true,
-      reworkVars: true,
-      reworkCalc: false,
-      reworkCustomMedia: true
-    }
-  }
+  reworkPlugins: [vars(), customMedia()]
 });
 ```
 
-By default, this addon comes bundled with the more popular plugins, so you can just
-set them to true in order to add them to the rework compilation process. You can also
-include an array of custom plugins, too:
+A more involved plugin example:
 
 ```javascript
+var vars = require('rework-vars');
 var classPrefix = require('rework-class-prefix');
 var flexGrid = require('rework-flex-grid');
 var colors = require('rework-colors')
 
 var app = EmberApp({
   reworkOptions: {
-    basePlugins: {
-      reworkNPM: true,
-      reworkVars: true,
-      reworkCustomMedia: true
-    },
-    customPlugins: [
-      classPrefix('my-class-prefix'),
-      flexGrid(),
-      colors()
-    ]
-  }
+  reworkPlugins[
+    vars(),
+    classPrefix('em-'),
+    flexGrid({
+      columns: 12,
+      classNames: {
+        grid: 'g',
+        row: 'r',
+        col: 'c'
+      }
+    }),
+    colors()
+  ]
 });
 ```
 
