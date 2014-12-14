@@ -2,7 +2,7 @@
 
 _Currently under development._
 
-Use rework CSS with your Ember app.
+Use [Rework CSS](https://github.com/reworkcss/) in your Ember app.
 
 ## Installation
 
