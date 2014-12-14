@@ -12,11 +12,13 @@ module.exports = {
 
   postprocessTree: function(type, tree) {
     if (type === 'all' || type === 'styles') {
-      tree = autoprefixer(tree, { use:function(css) {
+      tree = rework(tree, { use:function(css) {
         this.plugins.forEach(function(plugin) {
           css.use(plugin);
         });
       }});
     }
+
+    return tree;
   }
 };
