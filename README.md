@@ -1,8 +1,8 @@
 # Ember CLI Rework
 
-Use [Rework CSS](https://github.com/reworkcss/) preprocessing in your Ember app.
+[![Build Status](https://travis-ci.org/johnotander/ember-cli-rework.svg?branch=master)](https://travis-ci.org/johnotander/ember-cli-rework)
 
-Note: This currently does not support the rework-npm plugin (I'm working on it).
+Use [Rework CSS](https://github.com/reworkcss/) preprocessing in your Ember app.
 
 ## Installation
 
@@ -18,10 +18,11 @@ which Rework plugins to use in your `Brocfile.js`:
 
 ```javascript
 var vars = require('rework-vars');
-var customMedia = require('custom-media');
+var customMedia = require('rework-custom-media');
+var reworkNPM = require('rework-npm');
 
 var app = EmberApp({
-  reworkPlugins: [vars(), customMedia()]
+  reworkPlugins: [reworkNPM(), vars(), customMedia()]
 });
 ```
 
