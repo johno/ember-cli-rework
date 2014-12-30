@@ -13,7 +13,7 @@ module.exports = {
   postprocessTree: function(type, tree) {
     var plugins = this.plugins;
     if (plugins && (type === 'all' || type === 'styles')) {
-      tree = rework(tree, { use:function(css) {
+      tree = rework(tree, { use: function(css) {
         plugins.forEach(function(plugin) {
           css.use(plugin);
         });
