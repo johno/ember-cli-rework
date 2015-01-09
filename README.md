@@ -52,6 +52,10 @@ var app = EmberApp({
 });
 ```
 
+## Known Issues
+
+* `rework-npm` doesn't work in tandem with `ember-cli-divshot`
+
 ## Development
 
 ### Installation
