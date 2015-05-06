@@ -5,7 +5,9 @@ var reworkVars = require('rework-vars');
 var reworkNPM = require('rework-npm');
 
 var app = new EmberAddon({
-  reworkPlugins: [reworkNPM(), reworkVars()]
+  rework: {
+    plugins: [reworkNPM(), reworkVars()]
+  }
 });
 
 // Use `app.import` to add additional libraries to the generated
