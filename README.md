@@ -1,6 +1,4 @@
-# Ember CLI Rework
-
-[![Build Status](https://travis-ci.org/johnotander/ember-cli-rework.svg?branch=master)](https://travis-ci.org/johnotander/ember-cli-rework)
+# ember-cli-rework [![Build Status](https://travis-ci.org/johnotander/ember-cli-rework.svg?branch=master)](https://travis-ci.org/johnotander/ember-cli-rework) [![Ember Observer Score](http://emberobserver.com/badges/ember-cli-rework.svg)](http://emberobserver.com/addons/ember-cli-rework) 
 
 Use [Rework CSS](https://github.com/reworkcss/) postprocessing in your Ember app.
 
