@@ -2,19 +2,26 @@
 
 [![Build Status](https://travis-ci.org/johnotander/ember-cli-rework.svg?branch=master)](https://travis-ci.org/johnotander/ember-cli-rework)
 
-Use [Rework CSS](https://github.com/reworkcss/) preprocessing in your Ember app.
+Use [Rework CSS](https://github.com/reworkcss/) postprocessing in your Ember app.
 
 ## Installation
 
+For Ember CLI >= `0.2.3`
+
 ```
-npm i --save-dev ember-cli-rework
+ember install ember-cli-rework
+```
+
+For Ember CLI < `0.2.3`
+
+```
+ember install:addon ember-cli-rework
 ```
 
 ## Usage
 
-This addon will, by default, look for `app/styles/app.css` and compile it
-into `dist/assets/your-app-name.css`. However, you will have tell the addon
-which Rework plugins to use in your `Brocfile.js`:
+This addon will, by default, look for your css files in `app/styles` and process them.
+However, you will have tell the addon which Rework plugins to use in your `Brocfile.js`:
 
 ```javascript
 var vars = require('rework-vars');
@@ -22,7 +29,9 @@ var customMedia = require('rework-custom-media');
 var reworkNPM = require('rework-npm');
 
 var app = EmberApp({
-  reworkPlugins: [reworkNPM(), vars(), customMedia()]
+  rework: {
+    plugins: [reworkNPM(), vars(), customMedia()]
+  }
 });
 ```
 
@@ -35,20 +44,21 @@ var flexGrid = require('rework-flex-grid');
 var colors = require('rework-colors')
 
 var app = EmberApp({
-  reworkOptions: {
-  reworkPlugins[
-    vars(),
-    classPrefix('em-'),
-    flexGrid({
-      columns: 12,
-      classNames: {
-        grid: 'g',
-        row: 'r',
-        col: 'c'
-      }
-    }),
-    colors()
-  ]
+  rework: {
+  plugins[
+      vars(),
+      classPrefix('em-'),
+      flexGrid({
+        columns: 12,
+        classNames: {
+          grid: 'g',
+          row: 'r',
+          col: 'c'
+        }
+      }),
+      colors()
+    ]
+  }
 });
 ```
 
