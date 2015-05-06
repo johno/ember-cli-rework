@@ -46,18 +46,19 @@ var colors = require('rework-colors')
 var app = EmberApp({
   rework: {
   plugins[
-    vars(),
-    classPrefix('em-'),
-    flexGrid({
-      columns: 12,
-      classNames: {
-        grid: 'g',
-        row: 'r',
-        col: 'c'
-      }
-    }),
-    colors()
-  ]
+      vars(),
+      classPrefix('em-'),
+      flexGrid({
+        columns: 12,
+        classNames: {
+          grid: 'g',
+          row: 'r',
+          col: 'c'
+        }
+      }),
+      colors()
+    ]
+  }
 });
 ```
 
