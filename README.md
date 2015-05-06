@@ -6,8 +6,16 @@ Use [Rework CSS](https://github.com/reworkcss/) preprocessing in your Ember app.
 
 ## Installation
 
+For Ember CLI >= `0.2.3`
+
 ```
-npm i --save-dev ember-cli-rework
+ember install ember-cli-rework
+```
+
+For Ember CLI < `0.2.3`
+
+```
+ember install:addon ember-cli-rework
 ```
 
 ## Usage
