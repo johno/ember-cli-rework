@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 var rework = require('broccoli-rework');
 var Funnel = require('broccoli-funnel');
@@ -15,25 +15,33 @@ function Preprocessor(options) {
 
 // Preprocessor.toTree method
 Preprocessor.prototype.toTree = function(tree, inputPath, outputPath, inputOptions) {
-  // Apply rework plugins to css
-  var reworkTree = function reworkTree(tree) {
-    var plugins = this.options.plugins;
+  var self = this;
+  // All css in directories below "app/styles" is filtered out by default
+  var excludedCss = this.options.exclude || ['app/styles/*/**/*.css'];
 
+  // Filter css in subdirectories from tree
+  var filteredTree = new Funnel(tree, {
+    exclude: excludedCss
+  });
+
+  function reworkTree(tree) {
+    var plugins = self.options.plugins;
     if (plugins) {
-      tree = rework(tree, { use: function(css) {
-        plugins.forEach(function(plugin) {
-          css.use(plugin);
-        });
-      }});
+      tree = rework(tree, {
+        use: function(css) {
+          // Use all plugins defined in Brocfile.js config
+          plugins.forEach(function(plugin) {
+            css.use(plugin);
+          });
+        }
+      });
     }
-
-    // Return the modified css
+    // Return the reworked css
     return tree;
   };
 
-  // Passes rework's ouput to broccoli-funnel
-  return new Funnel(reworkTree(tree), {
-    // Broccoli-funnel options
+  // Funnel tree with reworked css to output path and return
+  return new Funnel(reworkTree(filteredTree), {
     srcDir: inputPath,
     destDir: outputPath
   });
